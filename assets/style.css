@@ -285,3 +285,71 @@ body{
   }
 }
 
+/* =========================
+   Two-column section layout
+   ========================= */
+
+.split{
+  display:grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 28px;
+  align-items:center;
+}
+
+.split-left a{
+  color: var(--text);
+}
+
+@media (max-width: 860px){
+  .split{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   Gallery preview grid
+   ========================= */
+
+.gallery-preview{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:12px;
+  text-decoration:none;
+}
+
+.gallery-preview img{
+  display:block;              /* fixes baseline/alt-text weirdness */
+  width:100%;
+  height:160px;               /* consistent tiles */
+  object-fit:cover;
+  border-radius:16px;
+  border:1px solid var(--line);
+  background:var(--panel);    /* looks nice while loading */
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.gallery-preview img:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 30px rgba(0,0,0,.35);
+  border-color:rgba(122,167,255,.35);
+}
+
+@media (max-width: 860px){
+  .gallery-preview{
+    grid-template-columns:repeat(2, 1fr);
+  }
+  .gallery-preview img{
+    height:150px;
+  }
+}
+.gallery-preview img:first-child{
+  grid-column: span 2;
+  height: 260px;
+}
+@media (max-width: 860px){
+  .gallery-preview img:first-child{
+    grid-column: span 2;
+    height: 220px;
+  }
+}
+
