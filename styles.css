@@ -211,55 +211,61 @@ h2{
   display: block;
 }
 
-/* ================= GALLERY SECTION LAYOUT ================= */
-/* Layout:
-   [ BIG ]
-   [ small ][ small ]
-   [ small ][ small ]
-*/
+/* ================= GALLERY SECTION
+   Layout:
+   [ BIG ][ S1 ][ S2 ]
+   [ BIG ][ S3 ][ S4 ]
+================= */
 
 #gallery .gallery-layout{
-  margin-top: 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 16px;
+
+  /* Make sure it fits nicely in the section */
+  height: min(500px, calc(100vh - var(--nav-h) - 220px));
 }
 
-/* Big featured image */
-#gallery .gallery-big{
-  display: block;
-  border-radius: 22px;
-  overflow: hidden;
+#gallery .tile{
+  position: relative;
   border: 1px solid var(--line);
-  box-shadow: 0 0 30px rgba(255,190,60,0.08);
+  border-radius: 18px;
+  overflow: hidden;
+  text-decoration: none;
 }
 
-#gallery .gallery-big img{
+#gallery .tile img{
   width: 100%;
-  height: 420px;          /* adjust 320–480 */
+  height: 100%;
   object-fit: cover;
   display: block;
 }
 
-/* 2x2 small grid */
-#gallery .gallery-small{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
+/* BIG tile spans two rows */
+#gallery .tile.big{
+  grid-row: span 2;
 }
 
-#gallery .gallery-small .card{
-  aspect-ratio: 1 / 1;    /* squares */
-  min-height: unset;      /* ensure no inherited min-height */
-  height: auto;
-}
+/* Mobile fallback */
+@media (max-width: 900px){
+  #gallery .gallery-layout{
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    height: auto;
+  }
 
-/* Mobile */
-@media (max-width: 800px){
-  #gallery .gallery-big img{ height: 280px; }
-  #gallery .gallery-small{ grid-template-columns: 1fr; }
-}
+  #gallery .tile.big{
+    grid-column: span 2;
+    grid-row: auto;
+    aspect-ratio: 16 / 9;
+  }
 
+  #gallery .tile{
+    aspect-ratio: 1 / 1;
+  }
+}
 /* ================= LINKS LIST ================= */
 
 .links{
