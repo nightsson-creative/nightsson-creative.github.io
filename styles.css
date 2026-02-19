@@ -179,18 +179,54 @@ h2{
   display:inline-block;
   padding:12px 18px;
   border-radius:999px;
+  border:1px solid var(--line);
+  text-decoration:none;
+  transition: all .25s ease;
+}
 
-  /* ===== Gallery Layout ===== */
+.cta:hover{
+  border-color: rgba(255,190,60,.5);
+  box-shadow: 0 0 18px rgba(255,190,60,.15);
+}
 
-.gallery-layout{
+.cta.ghost{
+  background:transparent;
+  opacity:.9;
+}
+
+/* ================= CARD BASE (used elsewhere too) ================= */
+
+.card{
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.card img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ================= GALLERY SECTION LAYOUT ================= */
+/* Layout:
+   [ BIG ]
+   [ small ][ small ]
+   [ small ][ small ]
+*/
+
+#gallery .gallery-layout{
   margin-top: 28px;
   display: flex;
   flex-direction: column;
   gap: 18px;
 }
 
-/* Big image */
-.gallery-big{
+/* Big featured image */
+#gallery .gallery-big{
   display: block;
   border-radius: 22px;
   overflow: hidden;
@@ -198,41 +234,96 @@ h2{
   box-shadow: 0 0 30px rgba(255,190,60,0.08);
 }
 
-.gallery-big img{
+#gallery .gallery-big img{
   width: 100%;
-  height: 420px;
+  height: 420px;          /* adjust 320–480 */
   object-fit: cover;
   display: block;
 }
 
-/* Small grid */
-.gallery-small{
+/* 2x2 small grid */
+#gallery .gallery-small{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 18px;
 }
 
-.gallery-small .card{
-  border-radius: 18px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  aspect-ratio: 1 / 1;
+#gallery .gallery-small .card{
+  aspect-ratio: 1 / 1;    /* squares */
+  min-height: unset;      /* ensure no inherited min-height */
+  height: auto;
 }
 
-.gallery-small img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
+/* Mobile */
 @media (max-width: 800px){
+  #gallery .gallery-big img{ height: 280px; }
+  #gallery .gallery-small{ grid-template-columns: 1fr; }
+}
 
-  .gallery-big img{
-    height: 280px;
-  }
+/* ================= LINKS LIST ================= */
 
-  .gallery-small{
-    grid-template-columns: 1fr;
-  }
+.links{
+  margin: 16px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
 
+/* ================= DOT NAV ================= */
+
+.dotnav{
+  position:fixed;
+  right:16px;
+  top:50%;
+  transform:translateY(-50%);
+  display:grid;
+  gap:10px;
+  z-index:10;
+}
+
+.dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.35);
+  background:transparent;
+  display:block;
+}
+
+.dot.active{
+  background: rgba(255,255,255,.85);
+}
+
+@media (hover: hover) and (pointer: fine){
+  .snap{ scroll-snap-type:y mandatory; }
+  .panel{ scroll-snap-align:start; scroll-snap-stop:always; }
+}
+
+@media (hover:none) and (pointer:coarse){
+  .dotnav{ display:none; }
+}
+
+/* ================= SECTION COLOR NUANCES ================= */
+
+#home{
+  background: linear-gradient(180deg, #060c18 0%, #0c162a 100%);
+}
+
+#gallery{
+  background: linear-gradient(180deg, #0a1324 0%, #0e1a30 100%);
+}
+
+#wip{
+  background: linear-gradient(180deg, #0c1628 0%, #13213a 100%);
+}
+
+#stories{
+  background: linear-gradient(180deg, #0a1426 0%, #162443 100%);
+}
+
+#mordheim{
+  background: linear-gradient(180deg, #0e1624 0%, #1b2b45 100%);
+}
+
+#about{
+  background: linear-gradient(180deg, #0a1220 0%, #0d182c 100%);
 }
