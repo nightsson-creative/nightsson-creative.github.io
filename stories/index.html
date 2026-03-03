@@ -1,28 +1,60 @@
-<section class="stories">
-  <h1>Stories</h1>
-  <p class="sub">Choose a tale.</p>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stories — Nightsson Creative</title>
+  <meta name="description" content="Stories by Nightsson Creative." />
+  <!-- IMPORTANT: root-relative path -->
+  <link rel="stylesheet" href="/styles.css" />
+</head>
 
-  <div class="book-grid">
-    <a class="book" href="/stories/the-wax-moon/">
-      <div class="book-3d">
-        <img class="cover" src="/assets/covers/wax-moon.jpg" alt="The Wax Moon cover">
-        <span class="spine"></span>
-      </div>
-      <div class="book-meta">
-        <h3>The Wax Moon</h3>
-        <p>Gothic folklore • Short story</p>
-      </div>
+<body>
+  <nav class="topnav">
+    <a href="/" class="logo" aria-label="Nightsson Creative">
+      <img src="/assets/Logo.png" alt="Nightsson Creative">
     </a>
 
-    <a class="book" href="/stories/mordheim-ashes/">
-      <div class="book-3d">
-        <img class="cover" src="/assets/covers/mordheim-ashes.jpg" alt="Mordheim: Ashes cover">
-        <span class="spine"></span>
+    <div class="nav-links">
+      <a href="/#gallery">Gallery</a>
+      <a href="/#wip">WIP</a>
+      <a href="/stories/">Stories</a>
+      <a href="/#mordheim">Mordheim</a>
+      <a href="/#about">About</a>
+    </div>
+  </nav>
+
+  <main class="page">
+    <section class="page-inner">
+      <h1>Stories</h1>
+      <p class="sub">Choose a tale.</p>
+
+      <div class="book-grid">
+
+        <a class="book" href="/stories/the-wax-moon/">
+          <div class="book-3d">
+            <img class="cover" src="/assets/covers/the-wax-moon.jpg" alt="The Wax Moon cover" loading="lazy">
+            <span class="spine" aria-hidden="true"></span>
+          </div>
+          <div class="book-meta">
+            <h3>The Wax Moon</h3>
+            <p>Gothic folklore • Short story</p>
+          </div>
+        </a>
+
+        <a class="book" href="/stories/mordheim-ashes/">
+          <div class="book-3d">
+            <img class="cover" src="/assets/covers/mordheim-ashes.jpg" alt="Mordheim: Ashes cover" loading="lazy">
+            <span class="spine" aria-hidden="true"></span>
+          </div>
+          <div class="book-meta">
+            <h3>Mordheim: Ashes</h3>
+            <p>Warband chronicle • Serial</p>
+          </div>
+        </a>
+
       </div>
-      <div class="book-meta">
-        <h3>Mordheim: Ashes</h3>
-        <p>Warband chronicle • Serial</p>
-      </div>
-    </a>
-  </div>
-</section>
+    </section>
+  </main>
+</body>
+</html>
