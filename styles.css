@@ -337,10 +337,11 @@ h2{
 /* ================= STORIES BOOK GRID ================= */
 
 .book-grid{
-  margin-top: 32px;
+  margin-top: 28px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 260px));
   gap: 28px;
+  justify-content: center;   /* keeps grid centered */
 }
 
 .book{
